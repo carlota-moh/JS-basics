@@ -147,3 +147,40 @@ let currentColorObj2 = userColorObj // will work
 console.log(currentColorObj2);
 userColorObj.value = 'blue';
 console.log(currentColorObj2);
+
+// Bitwise operators - operate at bit level
+
+// bitwise OR - if either of the binary digits is 1 it will be 1, else 0
+
+// 1 -> 00000001
+// 2 -> 00000010
+// R -> 00000011 (3)
+
+console.log(1 | 2); // single |
+// R = 3
+
+// bitwise AND -> similar, but applying AND logic
+console.log(1 & 2); // single &
+// R = 0
+
+// Real world implementation -> POSIX system (RWX)
+// R -> 00000100 (4)
+// W -> 00000010 (2)
+// X -> 00000001 (1)
+
+const readPermission = 4;
+const writePermission = 2;
+const executePermission = 1;
+
+let myPermission = 0; // initialize to 0
+
+// uppdate permissions
+myPermission = myPermission | readPermission | writePermission;
+console.log(myPermission);
+
+// check if we have a certain permission
+
+let message = (myPermission & readPermission) ? 'can read file' : 'cannot read file';
+console.log(message);
+
+// sum up -> use | to add permissions, use & to check permissions
