@@ -144,11 +144,11 @@ function calculateGrade(marks) {
     const averageGrade = marks.reduce((x, y) => x + y) / marks.length;
     let gradeLetter = undefined;
 
-    if (averageGrade < 60) gradeLetter = "F";
-    else if (60 <= averageGrade < 70) gradeLetter = "D";
-    else if (70 <= averageGrade < 80) gradeLetter = "C";
-    else if (80 <= averageGrade < 90) gradeLetter = "B";
-    else gradeLetter = "A";
+    if (averageGrade < 60) gradeLetter = 'F';
+    else if (60 <= averageGrade < 70) gradeLetter = 'D';
+    else if (70 <= averageGrade < 80) gradeLetter = 'C';
+    else if (80 <= averageGrade < 90) gradeLetter = 'B';
+    else gradeLetter = 'A';
 
     return {
         grade: averageGrade, 
@@ -160,9 +160,9 @@ function calculateGrade(marks) {
 // to the row number
 
 function showStars(rows) {
-    let stars = "";
+    let stars = '';
     for(let i = 1; i <= rows; i++) {
-        stars = stars.concat("*")
+        stars = stars.concat('*')
         console.log(stars);
     }
 }
