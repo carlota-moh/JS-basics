@@ -106,3 +106,40 @@ const numbers = [1, 2, 3, 4]
 console.log(Math.max.apply(null, numbers)); // 4
 
 // more information on: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
+
+// Enumerating properties of an object
+
+// There are two ways in which we can do this:
+
+const constantCircle = {
+    radius: 1,
+    draw() {console.log(radius);}
+};
+
+// using for..in
+
+for(let key in constantCircle) console.log(constantCircle[key]);
+
+// using for..of
+
+// this will return keys as an array
+for(let key of Object.keys(constantCircle)) console.log(constantCircle[key]);
+
+// this will return each key-value pair as a separate array, in which the first
+// element is the key and the second one is the value
+
+for(let entry of Object.entries(constantCircle)) console.log(entry);
+
+// to see if a property exists in an object we can use the if..in
+
+if('radius' in constantCircle) console.log('yes') // will log yes
+if('color' in constantCircle) console.log('yes')// will not log anything
+
+// cloning an object into another one
+
+// there are two ways of doing this:
+
+let cloneCircle1 = Object.assign({color: 'yellow'}, constantCircle); // we could also pass an empty object
+let cloneCircle = { color: 'yellow', ...constantCircle}; // spread operator 
+
+console.log(cloneCircle1)
