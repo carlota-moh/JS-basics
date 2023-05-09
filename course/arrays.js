@@ -93,4 +93,52 @@ fullArray2.length = 0; // will also affect anotherArray
 
 fullArray2.splice(0, deleteCount=fullArray2.length)
 
+// combining arrays
 
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+
+const combined = first.concat(second);
+const combinedSpread = [...first, 'intermediateElement', ...second, 'anotherElement']; // spread operator
+
+// slice array 
+
+const slice1 = combined.slice(2); // [3, 4, 5, 6]
+const slice2 = combined.slice(2, 4); // [3, 4]
+
+// copying arrays 
+const copyOfCombined = combined.slice();
+const copySpread = [...combined];
+
+// IMPORTANT NOTE: When using slice() method/slice operator for copying:
+
+// 1. If the elements are primitives, they will be copied into the new array
+// 2. If the elements are objects, their references will also be copied to the new array,
+// so they will be pointing to the same place in memory. 
+
+// EXAMPLE
+
+let array1 = [1, 2, 3, 4];
+let array2 = array1;
+let array3 = array1.slice();
+
+// modify original arrat
+
+array1[0] = 5;
+
+// array 3 is not modified
+console.log(array1);
+console.log(array2);
+console.log(array3);
+
+
+let array4 = [ {id: 1, color: 'blue'}];
+let array5 = array4;
+let array6 = array4.slice();
+
+array4[0].id = 19;
+
+// all arrays are affected
+console.log(array4);
+console.log(array5);
+console.log(array6);
